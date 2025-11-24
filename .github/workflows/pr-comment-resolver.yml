@@ -20,7 +20,7 @@ jobs:
       (github.event.issue.pull_request || github.event.pull_request) 
       && startsWith(github.event.comment.body, '@claude ')
 
-    runs-on: [ubuntu-slim]
+    runs-on: [ubuntu-24.04]
 
     outputs:
       pr_branch: ${{ steps.pr.outputs.head_ref }}
@@ -155,7 +155,7 @@ jobs:
 
     if: ${{ needs.analyze-pr-comment.outputs.user_prompt != '' }}
 
-    runs-on: [ubuntu-slim]
+    runs-on: [ubuntu-24.04]
 
     permissions:
       issues: write

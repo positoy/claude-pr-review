@@ -22,7 +22,7 @@ env:
 
 jobs:
   review-pr:
-    runs-on: [ubuntu-slim]
+    runs-on: [ubuntu-24.04]
     if: |
       (github.event.pull_request && !startsWith(github.event.pull_request.title, '.'))
       || (github.event.issue.pull_request && github.event.comment.body == '/review')
