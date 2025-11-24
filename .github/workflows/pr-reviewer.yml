@@ -163,6 +163,7 @@ jobs:
           CLAUDE_REQUEST: ${{ steps.prepare.outputs.prompt }}
         run: |
           # Run Claude Code in headless mode
+          echo $CLAUDE_CODE_OAUTH_TOKEN
           CLAUDE_RESPONSE=$(echo "$CLAUDE_REQUEST" | claude -p --dangerously-skip-permissions)
           echo -e "\nClaude Code Result:\n$CLAUDE_RESPONSE"
 
