@@ -159,11 +159,10 @@ jobs:
       - name: Run Claude Code
         id: claude
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_REQUEST: ${{ steps.prepare.outputs.prompt }}
         run: |
           # Run Claude Code in headless mode
-          echo $CLAUDE_CODE_OAUTH_TOKEN
           CLAUDE_RESPONSE=$(echo "$CLAUDE_REQUEST" | claude -p --dangerously-skip-permissions)
           echo -e "\nClaude Code Result:\n$CLAUDE_RESPONSE"
 
